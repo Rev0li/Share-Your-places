@@ -3,6 +3,8 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
+  Navigate,
+  
 } from "react-router-dom";
 
 import Users from "./user/pages/Users";
@@ -33,6 +35,7 @@ function App() {
         <Route path="/:userId/places" element={<UserPlaces />} exact />
         <Route path="/places/new" element={<NewPlace />} exact />
         <Route path="/places/:placeId" element={<UpdatePlace />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     );
 }
@@ -42,6 +45,7 @@ else {
       <Route path="/" element={<Users />} exact />
       <Route path="/:userId/places" element={<UserPlaces />} exact />
       <Route path="/auth" element={<Auth />} />
+      <Route path="*" element={<Navigate to="/auth" replace />} />
     </Routes>
   );
 }
