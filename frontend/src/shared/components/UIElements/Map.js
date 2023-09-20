@@ -3,15 +3,13 @@ import "./Map.css";
 
 import { Loader } from "@googlemaps/js-api-loader";
 
-
 const Map = (props) => {
-
   const mapRef = useRef();
 
   const { center, zoom } = props;
 
   useEffect(() => {
-  const MAP_API_KEY = process.env.MY_KEY;
+    const MAP_API_KEY = process.env.MAP_API_KEY;
     const loader = new Loader({
       apiKey: MAP_API_KEY,
       version: "weekly",
