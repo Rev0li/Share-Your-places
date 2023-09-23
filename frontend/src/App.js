@@ -30,9 +30,9 @@ function App() {
   if (isLoggedIn) {
     routes = (
       <Routes>
-        <Route path="/" element={<Users />} exact />
-        <Route path="/:userId/places" element={<UserPlaces />} exact />
-        <Route path="/places/new" element={<NewPlace />} exact />
+        <Route path="/" element={<Users />} />
+        <Route path="/:userId/places" element={<UserPlaces />} />
+        <Route path="/places/new" element={<NewPlace />} />
         <Route path="/places/:placeId" element={<UpdatePlace />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
@@ -40,8 +40,8 @@ function App() {
   } else {
     routes = (
       <Routes>
-        <Route path="/" element={<Users />} exact />
-        <Route path="/:userId/places" element={<UserPlaces />} exact />
+        <Route path="/" element={<Users />} />
+        <Route path="/:userId/places" element={<UserPlaces />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="*" element={<Navigate to="/auth" replace />} />
       </Routes>
