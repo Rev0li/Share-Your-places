@@ -4,8 +4,10 @@ import { CSSTransition } from "react-transition-group";
 import "./SideDrawer.css";
 
 export default function SideDrawer(props) {
+  const nodeRef = React.useRef(null);
   const content = (
     <CSSTransition
+      ref={nodeRef}
       in={props.show}
       timeout={200}
       classNames="slide-in-left"
