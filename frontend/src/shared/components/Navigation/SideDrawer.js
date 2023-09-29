@@ -7,14 +7,14 @@ export default function SideDrawer(props) {
   const nodeRef = React.useRef(null);
   const content = (
     <CSSTransition
-      ref={nodeRef}
+      nodeRef={nodeRef}
       in={props.show}
       timeout={200}
       classNames="slide-in-left"
       mountOnEnter
       unmountOnExit
     >
-      <aside className="side-drawer" onClick={props.onClick}>
+      <aside ref={nodeRef} className="side-drawer" onClick={props.onClick}>
         {props.children}
       </aside>
     </CSSTransition>
