@@ -1,7 +1,6 @@
 const fs = require("fs");
 const path = require("path");
 
-require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -9,8 +8,6 @@ const mongoose = require("mongoose");
 const placesRoutes = require("./routes/places-routes");
 const usersRoutes = require("./routes/users-routes");
 const HttpError = require("./models/http-error");
-
-const PASSWORD_MONGO = process.env.PASSWORD_MONGO;
 
 const app = express();
 
@@ -53,7 +50,7 @@ app.use((error, req, res, next) => {
 
 mongoose
   .connect(
-    `mongodb+srv://oli:${PASSWORD_MONGO}@cluster0.3trkigj.mongodb.net/mern?retryWrites=true&w=majority`
+    `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.3trkigj.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
   )
   .then(() => {
     app.listen(5000);
