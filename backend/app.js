@@ -8,6 +8,7 @@ const mongoose = require("mongoose");
 const placesRoutes = require("./routes/places-routes");
 const usersRoutes = require("./routes/users-routes");
 const HttpError = require("./models/http-error");
+require("dotenv").config();
 
 const app = express();
 
@@ -27,7 +28,7 @@ app.use((req, res, next) => {
 });
 
 mongoose
-  .connect(MONGO_ATLAS_URL)
+  .connect(process.env.MONGO_ATLAS_URL)
   .then(() => {
     app.listen(process.env.PORT || 5000);
   })

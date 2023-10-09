@@ -1,5 +1,6 @@
 const axios = require("axios");
 const HttpError = require("../models/http-error");
+require("dotenv").config();
 
 async function getCoordsFromAddress(address) {
   const reponse = await axios.get(
