@@ -18,6 +18,7 @@ app.use("/uploads/images", express.static(path.join("uploads", "images")));
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*"); // * means any domain can send request to this server
+  res.setHeader("Content-Type", "application/json");
   res.setHeader(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept, Authorization" // * means any domain can send request to this server
